@@ -141,4 +141,4 @@ class MenteeForm(forms.ModelForm):
 
     class Meta:
         model = Mentee
-        fields = ("area_of_interest", "goals")
+        fields = ("areas_of_guidance", "goals")

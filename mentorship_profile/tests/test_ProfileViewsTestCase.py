@@ -221,7 +221,7 @@ class ProfileViewTestCase(TestCase):
             "user-password1": "supersecret",
             "user-password2": "supersecret",
             "profile-bio": "Very personal information.",
-            "mentee-area_of_interest": "backend devops",
+            "mentee-areas_of_guidance": "industry trends skills tech",
             "mentee-goals": "Accomplish all the things!",
         }
         res = self.client.post(
@@ -277,7 +277,7 @@ class ProfileViewTestCase(TestCase):
             "user-password1": "supersecret",
             "user-password2": "supersecretLOL",
             "profile-bio": "Very personal information.",
-            "mentee-area_of_interest": "backend devops",
+            "mentee-areas_of_guidance": "industry trends skills tech",
             "mentee-goals": "Accomplish all the things!",
         }
         res = self.client.post(
@@ -419,13 +419,13 @@ class ProfileViewTestCase(TestCase):
 
         new_test_bio = "Learn some other things."
         test_email = "test_user@example.com"
-        test_area_of_interest = "data science"
+        test_areas_of_guidance = "industry trends skills tech"
         test_capacity = 4
         post_params = {
             "user-username": user.username,
             "user-email": test_email,
             "profile-bio": new_test_bio,
-            "mentee-area_of_interest": test_area_of_interest,
+            "mentee-areas_of_guidance": test_areas_of_guidance,
             "mentee-goals": test_goals,
             "mentor-mentee_capacity": test_capacity,
             "mentor-area_of_expertise": test_area_of_expertise
@@ -439,8 +439,8 @@ class ProfileViewTestCase(TestCase):
         self.assertEqual(updated_user.email, test_email)
         self.assertEqual(updated_user.profile.bio, new_test_bio)
         self.assertEqual(
-            updated_user.profile.mentee.area_of_interest,
-            test_area_of_interest
+            updated_user.profile.mentee.areas_of_guidance,
+            test_areas_of_guidance
         )
         self.assertEqual(
             updated_user.profile.mentor.mentee_capacity,

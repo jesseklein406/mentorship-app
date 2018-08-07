@@ -106,7 +106,7 @@ class FormsTestCase(TestCase):
         """Test all fields of a valid mentor form."""
         valid_mentee_data = {
             "goals": "Some meaningful goals.",
-            "area_of_interest": "backend devops"
+            "areas_of_guidance": "industry trends skills tech"
         }
 
         test_form = MenteeForm(valid_mentee_data)
@@ -115,7 +115,7 @@ class FormsTestCase(TestCase):
     def test_invalid_mentee_form(self):
         """Test some form validation."""
         invalid_mentee_data = {
-            "area_of_interest": "life, the universe, and everything"
+            "areas_of_guidance": "life, the universe, and everything"
         }
 
         test_form = MenteeForm(invalid_mentee_data)
@@ -123,7 +123,7 @@ class FormsTestCase(TestCase):
 
         # We've created errors in the following fields, check for them:
         # - goals
-        # - area_of_interest
-        error_fields = ["goals", "area_of_interest"]
+        # - areas_of_guidance
+        error_fields = ["goals", "areas_of_guidance"]
         for error in error_fields:
             self.assertTrue(error in test_form.errors)

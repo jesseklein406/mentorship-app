@@ -169,8 +169,18 @@ class Mentee(models.Model):
         Profile
     )
 
-    area_of_interest = models.CharField(
-        choices=CATEGORIES,
+    areas_of_guidance = models.CharField(
+        choices=(
+            ("portfolio code reviews", "Portfolio / Code Reviews"),
+            ("job search and interviews", "Job Search and Interviews"),
+            (
+                "industry trends skills tech",
+                "Industry Trends, Skills, Technologies"
+            ),
+            ("leadership management", "Leadership, Management"),
+            ("business entrepreneurship", "Business, Entrepreneurship"),
+            ("career growth", "Career Growth")
+        ),
         max_length=30,
         default="unknown"
     )
