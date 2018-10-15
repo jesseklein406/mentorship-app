@@ -72,8 +72,14 @@ class PairingAPI(APITestCase):
         data = response.json()
         self.assertTrue(data)
         self.assertEqual(data[0]["id"], self.pairing.id)
-        self.assertEqual(data[0]["mentor"], self.pairing.mentor.id)
-        self.assertEqual(data[0]["mentee"], self.pairing.mentee.id)
+        self.assertEqual(
+            data[0]["mentor"],
+            self.pairing.mentor.profile.user.username
+        )
+        self.assertEqual(
+            data[0]["mentee"],
+            self.pairing.mentee.profile.user.username
+        )
         self.assertEqual(data[0]["requested_by"], self.pairing.requested_by)
         self.assertEqual(data[0]["status"], self.pairing.status)
         self.assertEqual(data[0]["request_message"],
@@ -105,8 +111,14 @@ class PairingAPI(APITestCase):
         data = response.json()
         self.assertTrue(data)
         self.assertEqual(data["id"], self.pairing.id)
-        self.assertEqual(data["mentor"], self.pairing.mentor.id)
-        self.assertEqual(data["mentee"], self.pairing.mentee.id)
+        self.assertEqual(
+            data["mentor"],
+            self.pairing.mentor.profile.user.username
+        )
+        self.assertEqual(
+            data["mentee"],
+            self.pairing.mentee.profile.user.username
+        )
         self.assertEqual(data["requested_by"], self.pairing.requested_by)
         self.assertEqual(data["status"], self.pairing.status)
         self.assertEqual(data["request_message"], self.pairing.request_message)

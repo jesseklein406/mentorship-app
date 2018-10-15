@@ -48,6 +48,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class PairingSerializer(serializers.ModelSerializer):
+    mentor = serializers.CharField(
+        read_only=True, source="mentor.profile.user.username"
+    )
+    mentee = serializers.CharField(
+        read_only=True, source="mentee.profile.user.username"
+    )
+
     class Meta:
         model = Pairing
         fields = ("id", "mentor", "mentee", "requested_by", "status",

@@ -86,14 +86,10 @@ class UserDetail(APIView):
 
 
 class PairingList(generics.ListCreateAPIView):
-    # TODO: instead of mentor id and mentee id,
-    #       should use mentor's and mentee's user ids
     queryset = Pairing.objects.all()
     serializer_class = PairingSerializer
 
 
 class PairingDetail(generics.RetrieveUpdateDestroyAPIView):
-    # TODO: instead of mentor id and mentee id,
-    #       should use mentor's and mentee's user ids
     queryset = Pairing.objects.all()
     serializer_class = PairingSerializer
